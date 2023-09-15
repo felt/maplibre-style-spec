@@ -262,6 +262,10 @@
   		type: "number",
   		"default": 1
   	},
+  	baseMix: {
+  		type: "number",
+  		"default": 0
+  	},
   	volatile: {
   		type: "boolean",
   		"default": false
@@ -7559,6 +7563,9 @@
           }
       }
   }
+  function isZoomExpression(expression) {
+      return expression._styleExpression !== undefined;
+  }
   function createPropertyExpression(expressionInput, propertySpec) {
       const expression = createExpression(expressionInput, propertySpec);
       if (expression.result === 'error') {
@@ -9603,6 +9610,7 @@
       createPropertyExpression,
       isExpression,
       isExpressionFilter,
+      isZoomExpression,
       normalizePropertyExpression,
   };
   const styleFunction = {
@@ -9650,6 +9658,7 @@
   exports.interpolates = interpolate;
   exports.isExpression = isExpression;
   exports.isFunction = isFunction;
+  exports.isZoomExpression = isZoomExpression;
   exports.latest = v8Spec;
   exports.normalizePropertyExpression = normalizePropertyExpression;
   exports.operations = operations;

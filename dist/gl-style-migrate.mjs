@@ -262,6 +262,10 @@ var source_raster_dem = {
 		type: "number",
 		"default": 1
 	},
+	baseMix: {
+		type: "number",
+		"default": 0
+	},
 	volatile: {
 		type: "boolean",
 		"default": false

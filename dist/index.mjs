@@ -258,6 +258,10 @@ var source_raster_dem = {
 		type: "number",
 		"default": 1
 	},
+	baseMix: {
+		type: "number",
+		"default": 0
+	},
 	volatile: {
 		type: "boolean",
 		"default": false
@@ -7555,6 +7559,9 @@ class ZoomDependentExpression {
         }
     }
 }
+function isZoomExpression(expression) {
+    return expression._styleExpression !== undefined;
+}
 function createPropertyExpression(expressionInput, propertySpec) {
     const expression = createExpression(expressionInput, propertySpec);
     if (expression.result === 'error') {
@@ -9599,6 +9606,7 @@ const expression = {
     createPropertyExpression,
     isExpression,
     isExpressionFilter,
+    isZoomExpression,
     normalizePropertyExpression,
 };
 const styleFunction = {
@@ -9608,5 +9616,5 @@ const styleFunction = {
 };
 const visit = { eachLayer, eachProperty, eachSource };
 
-export { Color, ColorType, CompoundExpression, EvaluationContext, FormatExpression, Formatted, FormattedSection, FormattedType, Interpolate, Literal, NullType, Padding, ParsingError, ResolvedImage, Step, StyleExpression, StylePropertyFunction, ValidationError, VariableAnchorOffsetCollection, ZoomConstantExpression, ZoomDependentExpression, convertFilter, convertFunction, createExpression, createFunction, createPropertyExpression, derefLayers, diffStyles as diff, emptyStyle, expression, expressions, createFilter as featureFilter, styleFunction as function, groupByLayout, interpolateFactory, interpolate as interpolates, isExpression, isFunction, v8Spec as latest, normalizePropertyExpression, operations, supportsPropertyExpression, toString$1 as toString, typeOf, v8, validateStyleMin, visit };
+export { Color, ColorType, CompoundExpression, EvaluationContext, FormatExpression, Formatted, FormattedSection, FormattedType, Interpolate, Literal, NullType, Padding, ParsingError, ResolvedImage, Step, StyleExpression, StylePropertyFunction, ValidationError, VariableAnchorOffsetCollection, ZoomConstantExpression, ZoomDependentExpression, convertFilter, convertFunction, createExpression, createFunction, createPropertyExpression, derefLayers, diffStyles as diff, emptyStyle, expression, expressions, createFilter as featureFilter, styleFunction as function, groupByLayout, interpolateFactory, interpolate as interpolates, isExpression, isFunction, isZoomExpression, v8Spec as latest, normalizePropertyExpression, operations, supportsPropertyExpression, toString$1 as toString, typeOf, v8, validateStyleMin, visit };
 //# sourceMappingURL=index.mjs.map
