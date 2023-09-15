@@ -1,6 +1,7 @@
 ## main
 
 * Document `raster-fade-duration` property's effect on rendering a video. [#297](https://github.com/maplibre/maplibre-style-spec/pull/297)
+* Add raster dem source `redMix`, `greenMix`, `blueMix`, `baseMix` properties [#326](https://github.com/maplibre/maplibre-style-spec/issues/326)
 
 ## 19.3.0
 
